@@ -31,12 +31,13 @@ opts.nfreq  = ceil(limit_f * dt * nDFT);
 %%%%%%%%%
 %% BMD %%
 %%%%%%%%%
-%[B,P,f,idx] = bmd(X);
-%[B,P,f_idx,idx] = bmd_par(X);
-[B,P,f,idx] = bmd_gpu(X);
+
+%[B,P,f,idx] = bmd(X,nDFT,weight,nOvlp,dt,opts);
+%[B,P,f_idx,idx] = bmd_par(X,"Threads",8,nDFT,weight,nOvlp,dt,opts);
+[B,P,f,idx] = bmd_gpu(X,nDFT,weight,nOvlp,dt,opts);
 
 [f1,f2]    = ndgrid(f);    % Create a 2D frequency grid
-fprintf('BMD with df = %6g Complete.\n', 1/dt/nDFT)
+fprintf('BMD with df = %6g Complete \n', 1/dt/nDFT)
 disp(' ')
 
 

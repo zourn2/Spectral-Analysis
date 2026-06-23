@@ -20,13 +20,13 @@ y = coords(:, 2);
 u = X(:, :, 1);
 v = X(:, :, 2);
 
-dt        = 0.05;
-nt        = size(u,1);
-nDFT      = 512;
-nOvlp     = 256;
-window    = hann(nDFT);
+dt                 = 0.05;
+nt                 = size(u,1);
+nDFT           = 1024;
+nOvlp           = 512;
+window        = hann(nDFT);
 
-opts.conflvl    = 0.95;    % confidence interval
+opts.conflvl  = 0.95;    % confidence interval
 
 
 %%%%%%%%%%
@@ -81,8 +81,8 @@ end
 figure
 for mi = 1:size(L,2)
     lh = loglog(f,L(:,mi),'LineWidth',1); hold on
-    loglog(f,Lc(:,mi,1),'LineWidth',0.1,'Color',get(lh,'Color'),'LineStyle','--'); % lower confidence level
-    loglog(f,Lc(:,mi,2),'LineWidth',0.1,'Color',get(lh,'Color'),'LineStyle','--'); % upper confidence level
+    loglog(f,Lc(:,mi,1),'LineWidth',0.1,'Color',[get(lh,'Color'),0.3],'LineStyle','--'); % lower confidence level
+    loglog(f,Lc(:,mi,2),'LineWidth',0.1,'Color',[get(lh,'Color'),0.3],'LineStyle','--'); % upper confidence level
 end
 set(gca,'XScale','log','YScale','log');
 xlabel('frequency'), ylabel('SPOD mode energy')

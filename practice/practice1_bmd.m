@@ -49,7 +49,7 @@ axis equal tight; colormap default; caxis([0 1.5]);
 xlabel('x'), ylabel('y'); title('p');
 
 % Render Animation Loop
-for ti = 1300:1400
+for ti =2500:2600
     % Update u' (Fluctuation)
     h_u.FaceVertexCData = (u(ti,:) - u_mean)';
     title_u.String      = ['u'' (t = ', num2str(t_i + ti*dt), ')']; % Update time string
@@ -87,7 +87,7 @@ end
 
 f = f_idx / (nDFT * dt);
 [f1,f2]     = ndgrid(f);    % Create a 2D frequency grid
-fprintf('BMD with df = %6g Complete.\n', 1/dt/nDFT)
+fprintf('BMD with df = %6g Complete \n', 1/dt/nDFT)
 disp(' ')
 
 
@@ -147,6 +147,7 @@ for k = 1:n_found
 end
 
 %% Plot mode magnitude bispectrum
+figure
 subplot(2,2,[1 3])
 contourf(i1, i2, log(abs(B)), 100, 'linecolor', 'none'); 
 axis equal tight; colormap default;
