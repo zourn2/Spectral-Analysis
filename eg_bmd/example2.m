@@ -30,9 +30,12 @@ X(:,:,:,2)   = v; clear u v
 %%%%%%%%%
 %% BMD %%
 %%%%%%%%%
-[B,P,f,idx] = bmd_par(X,"Threads",8,nDFT,weight,nOvlp,dt,opts);
-%[B,P,f,idx] = bmd_gpu(X,nDFT,weight,nOvlp,dt,opts);
+
+%[B,P,f,idx] = bmd(X,nDFT,weight,nOvlp,dt,opts);
+%[B,P,f,idx] = bmd_par(X,"Threads",8,nDFT,weight,nOvlp,dt,opts);
+[B,P,f,idx] = bmd_gpu(X,nDFT,weight,nOvlp,dt,opts);
 [f1,f2]     = ndgrid(f);
+
 
 %% Mode magnitude bispectrum
 spec_fig = figure;

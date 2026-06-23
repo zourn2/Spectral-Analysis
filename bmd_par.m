@@ -80,14 +80,14 @@ function [L,P,f,idx,T] = bmd_par(X,profile,number,varargin)
 %       algorithm implemented by B. Yeung is now standard
 %       - standard tolerance changed to 1e-6
 
-% Set default profile and number to 'Threads' and 4
+% Set default profile and number to 'Threads' and 6
 arguments
     X
     % profile: 'Threads' or 'Processes'
     profile (1,:) char {mustBeMember(profile, {'Threads', 'Processes'})} = 'Threads' 
 
     % number: Number of parallel workers/threads
-    number (1,1) double {mustBePositive, mustBeInteger} = 4 
+    number (1,1) double {mustBePositive, mustBeInteger} = 6
 end
 arguments (Repeating)
     varargin % Additional Inputs

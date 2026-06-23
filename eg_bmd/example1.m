@@ -1,4 +1,3 @@
-
 % EXAMPLE 1 demonstrates the use of BMD (Bispectral Mode Decomposition) on
 % a single-variable 2-D flow field (the streamwise velocity component of
 % the wake behind a cylinder at Re=500). No spectral estimation parameters
@@ -35,10 +34,12 @@ end
 %%%%%%%%%
 %% BMD %%
 %%%%%%%%%
+
 %[B,P,f,idx] = bmd(X);
-[B,P,f,idx] = bmd_par(X);
-%[B,P,f,idx] = bmd_gpu(X);
+%[B,P,f,idx] = bmd_par(X);
+[B,P,f,idx] = bmd_gpu(X);
 [f1,f2]     = ndgrid(f);
+
 
 %% Plot mode magnitude bispectrum
 figure
